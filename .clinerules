@@ -1,0 +1,203 @@
+# Project Intelligence - Portfolio Website
+
+## User Preferences & Workflow
+
+### Development Approach
+- **Keep it Simple**: Single HTML file, no build process, minimal dependencies
+- **CDN First**: Prefer CDN-hosted libraries (Tailwind CSS, Google Fonts)
+- **Static Deployment**: No server-side rendering, pure static HTML
+- **Modern Standards**: Use latest CSS features, semantic HTML5
+
+### Design Philosophy
+- **Professional First**: Clean, corporate aesthetic targeting recruiters
+- **Subtle Animations**: Eye-catching but not distracting
+- **Sky Blue Palette**: Primary color #0284c7 (Sky 600), secondary #e0f2fe (Sky 100)
+- **Responsive Always**: Mobile-first design approach
+- **Information Hierarchy**: Clear scanning path for busy recruiters
+
+### Content Strategy
+- **PM Focus**: Emphasize product management transition, not just engineering
+- **Business + Tech**: Showcase dual competency (MBA + 5 years engineering)
+- **Clear CTAs**: Direct calls to action for PM/APM opportunities
+- **Credibility Markers**: Certifications, MBA, research, entrepreneurship (HC BYTES)
+
+## Critical Implementation Paths
+
+### Adding New Sections
+1. Follow existing section pattern:
+   ```html
+   <section id="section-name" class="py-24 bg-white/60 backdrop-blur-sm relative z-10">
+     <div class="max-w-4xl mx-auto px-6">
+       <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">Section Title</h2>
+       <!-- Content -->
+     </div>
+   </section>
+   ```
+2. Add navigation link in nav element
+3. Maintain consistent spacing (py-24)
+4. Use max-w-4xl or max-w-6xl container
+
+### Modifying Animations
+- All animations defined in `<style>` block in `<head>`
+- Key animations: fadeInUp, float, gradient, hover-lift, pulse-glow
+- Use delay classes: delay-100, delay-200, delay-300, delay-400
+- Stagger animations for visual hierarchy
+
+### Color System Usage
+- **Primary actions**: bg-primary (Sky 600)
+- **Highlights**: bg-secondary (Sky 100/200)
+- **Text hierarchy**: text-slate-900 (headings) → text-slate-600 (body) → text-slate-400 (muted)
+- **Borders**: border-slate-100
+- **Shadows**: shadow-sm, shadow-lg, shadow-xl
+
+### Responsive Patterns
+- **Grid**: `grid md:grid-cols-2` for desktop two-column
+- **Text size**: `text-5xl md:text-7xl` for responsive typography
+- **Spacing**: `mb-6` mobile, increase for desktop if needed
+- **Navigation**: `hidden md:flex` for desktop-only nav items
+
+## Known Challenges & Solutions
+
+### Challenge: Keeping Single File Maintainable
+**Solution**: Clear HTML structure with comments for major sections, inline CSS organized by purpose (animations, utilities, custom classes)
+
+### Challenge: CDN Dependencies
+**Solution**: Accept trade-off for simplicity - no build process needed. Can self-host later if needed.
+
+### Challenge: Contact Form Without Backend
+**Solution**: Use mailto: link for now. If backend needed, consider Netlify Forms or similar serverless solution.
+
+### Challenge: SEO for Single Page App
+**Solution**: Add comprehensive meta tags, structured data, and ensure semantic HTML. Consider adding blog subdirectory if content strategy expands.
+
+## Evolution of Project Decisions
+
+### Dec 14, 2025 - Initial Assessment
+- Recognized project as complete, production-ready portfolio
+- Identified unique positioning: Technical PM vs typical engineering portfolio
+- Documented clean single-file architecture
+- Created comprehensive Memory Bank for continuity
+
+## Tool Usage Patterns
+
+### File Modifications
+- **Preferred**: Use `edit_block` for targeted changes to index.html
+- **Avoid**: Rewriting entire file unless major restructuring
+- Always verify changes with user before multiple edits
+
+### Testing Approach
+- Use `execute_command` with `open index.html` to test in browser
+- Can use browser_action for visual verification if needed
+- Test responsive breakpoints: 320px, 768px, 1024px+
+
+## Coding Style Preferences
+
+### HTML
+- Semantic elements (nav, header, section)
+- Tailwind utility classes (long class strings acceptable)
+- Self-closing tags where appropriate
+- 2-space indentation
+
+### CSS
+- Inline styles in `<style>` block
+- Organized by: base styles → animations → utilities → custom classes
+- Use Tailwind config for theme customization
+- kebab-case for custom class names
+
+### JavaScript
+- Minimal to none (CSS-only preferred)
+- If needed: vanilla JS, no frameworks
+- Inline in `<script>` tag at end of body
+
+## Architecture Decisions
+
+### Why Single File?
+- Simplicity: No build process, easy deployment
+- Performance: Minimal HTTP requests
+- Maintainability: Everything in one place for small project
+- Portability: Can send single file, works anywhere
+
+### Why Tailwind CDN?
+- No npm dependencies
+- Just-in-time compilation
+- Easy customization via embedded config
+- Reduced development friction
+
+### Why Static HTML?
+- Portfolio doesn't need dynamic content
+- Fast load times
+- Easy hosting (free options available)
+- No backend security concerns
+
+## Important Patterns
+
+### Resume Link Pattern
+- External Google Drive link
+- `target="_blank"` for new tab
+- Should update when resume changes
+
+### External Links Pattern
+- All external links use `target="_blank"`
+- **TODO**: Add `rel="noopener noreferrer"` for security
+
+### Timeline Pattern (Experience Section)
+- Left border with absolute positioned markers
+- Primary color for current role, gray for past
+- Responsive: stacks on mobile, inline on desktop
+
+### Animation Pattern
+- Entry animations on hero section only
+- Hover effects on interactive elements
+- Continuous animations for decorative elements
+- Performance: Use transform and opacity (GPU accelerated)
+
+## User Context
+
+### About Harshit Chaturvedi
+- Frontend Engineer at Juspay (Mar 2020 - Present)
+- MBA in IT (2023-25)
+- Running HC BYTES education platform
+- Transitioning from engineering to Product Management
+- Looking for PM/APM opportunities
+- Based in India (timezone: Asia/Calcutta)
+
+### Career Goals
+- Associate Product Manager roles
+- Project Management positions
+- Leverage technical background for PM work
+- Combine 5+ years engineering with business acumen
+
+## Future Considerations
+
+### If Adding Projects Section
+- Consider case study format
+- Show PM thinking: problem → research → solution → metrics
+- Include Figma mockups or screenshots if available
+- Highlight cross-functional collaboration
+
+### If Adding Blog
+- Separate directory (e.g., `/blog/`)
+- Link from main portfolio
+- Focus on PM topics: product strategy, user research, roadmapping
+- Demonstrates thought leadership
+
+### If Scaling
+- Consider separating CSS to external file
+- Add build process (optional) for optimization
+- Implement component-based approach (React/Vue)
+- But: Only if complexity warrants it
+
+## Memory Bank Maintenance
+
+### When to Update
+- After adding new sections or features
+- When content changes (new role, certification)
+- If user preferences change
+- After discovering new patterns
+- When technical approach evolves
+
+### Critical Files
+1. **projectbrief.md**: Source of truth for scope
+2. **activeContext.md**: Current state and next steps
+3. **progress.md**: Track what's complete vs pending
+4. **.clinerules**: Learn and evolve (this file)
